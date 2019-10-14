@@ -27,14 +27,12 @@ public:
 
 private slots:
     void on_uploadButton_clicked();
-    void on_downloadButton_clicked();
 
-    void readContent();
     void replyFinished(QNetworkReply*);
     void loadError(QNetworkReply::NetworkError);
     void loadProgress(qint64 bytesSent,qint64 bytesTotal);
 
-    void on_setPara_clicked();
+    void Initsth();
 
 private:
     Ui::MainWindow *ui;
