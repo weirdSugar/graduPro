@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <QTableWidget>
+#include <QTableWidgetItem>
+#include <QHeaderView>
+#include <QTableView>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -22,9 +25,9 @@ void MainWindow::on_uploadButton_clicked()
 
     QNetworkAccessManager *accessManager = new QNetworkAccessManager(this);
     accessManager->setNetworkAccessible(QNetworkAccessManager::Accessible);
-    QString path = "ftp://" + serverIp + "/test4FTP/";
-    //QUrl url("ftp://192.168.2.12/home/test/" + ui->lineEdit->text()+ ".wav");
-    QUrl url(path + ui->lineEdit->text());
+    QString path = "ftp://" + serverIp + "/test4FTP/success";
+    //QUrl url("ftp://192.168.2.12/home/test/" + ui->lineEdit->text()+ ".SPE");
+    QUrl url(path);
     url.setPort(portNumebr);
     url.setUserName(userName);
     url.setPassword(passWord);
@@ -73,43 +76,25 @@ void MainWindow::loadError(QNetworkReply::NetworkError)    //传输中的错误�
 void MainWindow::Initsth()
 {
     //change title
-    setWindowTitle(tr("FTP Client"));
-
+//    setWindowTitle(tr("FTP Client"));
+    QTableWidget* table = new QTableWidget(this); //创建一个表格
+    table->resize(550,400);
+    table->move(16,186);
+    table->verticalHeader()->hide();
+    table->horizontalHeader()->setStretchLastSection(true);
+    table->setRowCount(18);    //设置行数
+    table->setColumnCount(3); //设置列数
+    table->setHorizontalHeaderLabels(QStringList()<<"类型"<<"文件名"<<"时间"); //设置行头
+    table->setItem(0,0,new QTableWidgetItem("item1")); //设置表格内容
     //ftp parameter
     serverIp = "207.246.78.45";
     portNumebr = 21;
     userName = "root";
-    passWord = "4!UeX-YsLc?+LP$(";
+    passWord = "ohno";
 
     qDebug()<<"serverIp："<<serverIp<<endl;
     qDebug()<<"port："<<portNumebr<<endl;
     qDebug()<<"userName："<<userName<<endl;
     qDebug()<<"passWord："<<passWord<<endl;
 
-    //server ip
-//    if(serverIp == NULL)
-//    {
-//        qDebug()<<"input serverIp invalid"<<endl;
-//        return ;
-//    }
-
-//    if(portNumebr == NULL)
-//    {
-//        qDebug()<<"input portNumebr invalid"<<endl;
-//        return ;
-//    }
-
-//    if(userName == NULL)
-//    {
-//        qDebug()<<"input userName invalid"<<endl;
-//        return ;
-//    }
-
-//    if(passWord == NULL)
-//    {
-//        qDebug()<<"input passWord invalid"<<endl;
-//        return ;
-//    }
-
-//    ui->setPara->setEnabled(false);
 }

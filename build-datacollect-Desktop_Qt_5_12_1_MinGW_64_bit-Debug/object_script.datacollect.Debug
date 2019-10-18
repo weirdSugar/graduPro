@@ -1,0 +1,10 @@
+debug/main.o
+debug/datacollect.o
+debug/parmset.o
+debug/mythread.o
+debug/globaldatadefine.o
+debug/chart.o
+debug/moc_datacollect.o
+debug/moc_parmset.o
+debug/moc_mythread.o
+debug/moc_chart.o

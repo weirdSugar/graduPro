@@ -1,0 +1,10 @@
+release/main.o
+release/datacollect.o
+release/parmset.o
+release/mythread.o
+release/globaldatadefine.o
+release/chart.o
+release/moc_datacollect.o
+release/moc_parmset.o
+release/moc_mythread.o
+release/moc_chart.o
